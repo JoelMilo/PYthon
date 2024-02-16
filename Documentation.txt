@@ -1,0 +1,52 @@
+aPython Project Documentation:
+
+Program Description:
+
+My program will generate and read a text in which instances of games are declared.
+Each line in this file will denote either a game that can be bought or a game that can be rented.
+Each line will contain this information separated by commas ",": Game Name, Category, Memory, Price, Discount.
+The programm will determinate wether the game is a game that can be bought or a game that can be rented.
+After that, it will add each game in a dictionary where it will order it by the new price after discount is applied.
+
+Code Descritpion:
+
+GameShop.py:
+
+A parent class named GameShop is created to store values: Name, Category, Memory and Price
+Each of these properties of class have their respective getters and setters.
+Also an abstarct method getNewPrice is created and will be overriden by the inherited classes.
+
+We will have two classes inheriting from GameShop. Buy and RenIt.
+The main difference between them is discount poperty.
+On a game that can be bought the discount is not applied and it will be calculated as 0, which is different from RentIt property.
+For a game that can be bought it's price is calculated differently from a game that can be rented.
+
+
+main.py
+
+The programm will make use of some pre defined objects:
+A string for the name of text file.
+A list to use for each line inside the text file.
+A couple of dictionaries to append each object taken from the file.
+Some integers for newline, list and dictionaries element counters.
+
+A file is created then wrriten on ti by the function gameGenerator.
+I have defined this function for the purpose to generate each game instance.
+gameGenerator will take a number, which will be used as the name of the game and category: Game n, Category n
+I have used the random python library to determine the numbers of each game.
+
+After that we open the file again but this time instead of write we will read from the file.
+I have used a for loop to appen each line on the file into a list name "all_lines"
+
+Then we create a pattern recognition (regex) formulla which will:
+-separate each line by its commas
+-create objects based on the information in file
+- append these objects to our pre-defined dictionaries.
+
+Then, I have created 3 methods:
+-"getPrices": which will execute the getNewPrice method on each property instance and assert it in a dictionary.
+-"findHighestPrice": which will sort prices and show the highest game price
+-"findLowestPrice": which will sort prices and show the lowest game price
+
+and we will open again the file to read all lines and we have created a list to append all lines in our file sort them based on the price from lowest to highest
+and print the list.
